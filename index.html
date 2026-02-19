@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Super Hero Origin – Batman</title>
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+    --theme-glow: rgba(0, 136, 255, 0.8);
+    --theme-accent: #0088ff;
+}
+
+/* BODY & BORDER */
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+    background-color: #000;
+}
+
+.border-wrapper {
+    padding: 8px;
+    background: linear-gradient(45deg, #001f3f, #0052cc, #00d2ff, #4a00e0, #120024, #001f3f);
+    background-size: 300% 300%;
+    animation: gradientBorder 10s ease infinite;
+    min-height: 100vh;
+}
+@keyframes gradientBorder {0%,100%{background-position:0% 50%;} 50%{background-position:100% 50%;}}
+
+/* CONTENT */
+.content {
+    position: relative;
+    background-color: #000;
+    min-height: calc(100vh - 16px);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    padding: 50px 20px;
+    overflow: hidden;
+}
+
+/* BACKGROUND LAYERS */
+.bg-layers { position: absolute; inset:0; z-index:0; border-radius:inherit; }
+.bg-layer { position:absolute; inset:0; opacity:0; transition:opacity 1.5s ease-in-out; background-size:200% 200%; animation:panBackground 15s ease-in-out infinite alternate; }
+.bg-layer.active { opacity:1; }
+.layer-deep-blue{ background:linear-gradient(135deg,#000428,#004e92,#001133);}
+.layer-dark-purple{ background:linear-gradient(135deg,#120024,#32004f,#0a0014);}
+.layer-midnight-black{ background:linear-gradient(135deg,#050505,#1a1a24,#000000);}
+.layer-ice-cyan{ background:linear-gradient(135deg,#001a22,#00607a,#002b36);}
+@keyframes panBackground {0%{background-position:0% 0%;} 100%{background-position:100% 100%;}}
+
+/* INNER CONTENT */
+.inner-content{position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; width:100%; max-width:1000px;}
+
+/* TITLE */
+h1.title{
+    font-family:'Cinzel', serif;
+    font-size:6rem;
+    letter-spacing:15px;
+    text-transform:uppercase;
+    color:#ffffff;
+    text-shadow:0 0 10px var(--theme-glow),0 0 30px var(--theme-glow);
+    animation:pulseGlow 3s ease-in-out infinite alternate;
+    transition:all 0.8s ease;
+    text-align:center;
+}
+@keyframes pulseGlow { from{transform:scale(0.98);opacity:0.8;} to{transform:scale(1);opacity:1;} }
+
+/* BUTTON */
+.reveal-btn{
+    margin-top:40px;
+    padding:15px 40px;
+    font-family:'Cinzel', serif;
+    font-size:1.2rem;
+    color:#fff;
+    background:transparent;
+    border:2px solid var(--theme-accent);
+    border-radius:4px;
+    cursor:pointer;
+    letter-spacing:3px;
+    box-shadow:0 0 15px var(--theme-glow);
+    transition:all 0.4s ease;
+}
+.reveal-btn:hover{
+    background:var(--theme-accent);
+    transform:scale(1.05);
+    box-shadow:0 0 30px var(--theme-glow);
+}
+
+/* HIDDEN CONTENT */
+.hidden-content { display:none; opacity:0; width:100%; text-align:center; }
+.is-visible{ display:block !important; animation:fadeIn 1.5s forwards; }
+@keyframes fadeIn{ from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
+
+/* BATMAN IMAGE */
+.batman-img {
+    width:100%;
+    max-width:380px;
+    margin:40px auto;
+    display:block;
+    filter: drop-shadow(0 0 20px var(--theme-glow));
+    opacity:0;
+    transition: opacity 1.5s ease, transform 1.5s ease;
+    animation:popUpScale 1.2s cubic-bezier(0.17,0.67,0.83,0.67) forwards;
+}
+@keyframes popUpScale{ 0%{opacity:0;transform:scale(0.6) translateY(50px);} 100%{opacity:1;transform:scale(1) translateY(0);} }
+
+/* STORY */
+.story-section{ max-width:800px; margin:0 auto 30px; line-height:1.8; font-size:1.2rem; color:#d1d1d1; }
+
+/* QUOTE */
+.quote{ font-family:'Cinzel', serif; font-size:2.2rem; color:#ffffff; text-shadow:0 0 15px var(--theme-glow); margin-bottom:40px; opacity:0; transition:opacity 1.5s ease; }
+
+/* THEME BUTTONS */
+.theme-controls-wrapper{
+    margin-top:30px;
+    padding:20px 30px;
+    background: rgba(0,0,0,0.4);
+    border-radius:15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+.theme-buttons{
+    display:flex;
+    gap:15px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+.theme-btn{
+    padding:10px 20px;
+    font-family:'Montserrat',sans-serif;
+    font-weight:bold;
+    color:#fff;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.2);
+    border-radius:30px;
+    cursor:pointer;
+    transition: all 0.3s ease;
+}
+.theme-btn.active-btn{
+    background:var(--theme-accent);
+    box-shadow:0 0 15px var(--theme-glow);
+}
+
+/* FOOTER */
+footer{
+    margin-top:60px;
+    font-family:'Cinzel', serif;
+    font-weight:700;
+    font-size:0.85rem;
+    letter-spacing:6px;
+    text-transform:uppercase;
+    background:linear-gradient(to right,#444 0%,#fff 50%,#444 100%);
+    background-size:200% auto;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:shineFooter 4s linear infinite;
+}
+@keyframes shineFooter { to{background-position:200% center;} }
+
+</style>
+</head>
+<body>
+
+<div class="border-wrapper">
+    <div class="content" id="main-content">
+        
+        <div class="bg-layers">
+            <div class="bg-layer layer-deep-blue active" id="bg-deep-blue"></div>
+            <div class="bg-layer layer-dark-purple" id="bg-dark-purple"></div>
+            <div class="bg-layer layer-midnight-black" id="bg-midnight-black"></div>
+            <div class="bg-layer layer-ice-cyan" id="bg-ice-cyan"></div>
+        </div>
+
+        <div class="inner-content">
+            <h1 class="title" id="main-title">Batman</h1>
+
+            <button class="reveal-btn" id="startBtn">Read Batman Story</button>
+
+            <div class="hidden-content" id="revealedBody">
+                <img src="batman.png" alt="Batman" class="batman-img">
+                
+                <div class="story-section">
+                    <p>
+                        Born into the wealthy Wayne family, young Bruce's life was shattered by tragedy. 
+                        Swearing an oath to rid Gotham City of evil, he trained his mind and body to perfection. 
+                        He adopted a symbol of the dark to strike fear into criminals. He became the Batman.
+                    </p>
+                </div>
+
+                <div class="quote">
+                    "I am vengeance. I am the night. I am Batman."
+                </div>
+
+                <div class="theme-controls-wrapper">
+                    <div class="theme-buttons">
+                        <button class="theme-btn active-btn" data-target="bg-deep-blue" data-glow="rgba(0, 136, 255, 0.8)" data-accent="#0088ff">Deep Blue</button>
+                        <button class="theme-btn" data-target="bg-dark-purple" data-glow="rgba(157, 0, 255, 0.8)" data-accent="#9d00ff">Purple</button>
+                        <button class="theme-btn" data-target="bg-midnight-black" data-glow="rgba(200, 200, 200, 0.5)" data-accent="#555555">Midnight</button>
+                        <button class="theme-btn" data-target="bg-ice-cyan" data-glow="rgba(0, 255, 255, 0.8)" data-accent="#00ffff">Ice Cyan</button>
+                    </div>
+                </div>
+
+                <footer>
+                    code written by Abele
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+const startBtn = document.getElementById('startBtn');
+const revealedBody = document.getElementById('revealedBody');
+const batmanImg = document.querySelector('.batman-img');
+const quote = document.querySelector('.quote');
+const themeButtons = document.querySelectorAll('.theme-btn');
+const bgLayers = document.querySelectorAll('.bg-layer');
+
+startBtn.addEventListener('click', () => {
+    startBtn.style.display = 'none';
+    revealedBody.classList.add('is-visible');
+    batmanImg.style.opacity = '1';
+    quote.style.opacity = '1';
+});
+
+themeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        themeButtons.forEach(btn => btn.classList.remove('active-btn'));
+        button.classList.add('active-btn');
+        const targetId = button.dataset.target;
+        bgLayers.forEach(layer => layer.classList.toggle('active', layer.id === targetId));
+        document.documentElement.style.setProperty('--theme-glow', button.dataset.glow);
+        document.documentElement.style.setProperty('--theme-accent', button.dataset.accent);
+    });
+});
+</script>
+
+</body>
+</html>
