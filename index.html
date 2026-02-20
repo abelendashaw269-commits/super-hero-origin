@@ -45,7 +45,7 @@ body {
 
 /* BACKGROUND LAYERS */
 .bg-layers { position: absolute; inset:0; z-index:0; border-radius:inherit; }
-.bg-layer { position:absolute; inset:0; opacity:0; transition:opacity 1.5s ease-in-out; background-size:200% 200%; animation:panBackground 15s ease-in-out infinite alternate; }
+.bg-layer { position:absolute; inset:0; opacity:0; transition:opacity 1.5s ease-in-out; background-size:200% auto; animation:panBackground 15s ease-in-out infinite alternate; }
 .bg-layer.active { opacity:1; }
 .layer-deep-blue{ background:linear-gradient(135deg,#000428,#004e92,#001133);}
 .layer-dark-purple{ background:linear-gradient(135deg,#120024,#32004f,#0a0014);}
@@ -146,21 +146,58 @@ h1.title{
     box-shadow:0 0 15px var(--theme-glow);
 }
 
-/* FOOTER */
-footer{
-    margin-top:60px;
-    font-family:'Cinzel', serif;
-    font-weight:700;
-    font-size:0.85rem;
-    letter-spacing:6px;
-    text-transform:uppercase;
-    background:linear-gradient(to right,#444 0%,#fff 50%,#444 100%);
-    background-size:200% auto;
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    animation:shineFooter 4s linear infinite;
+/* FOOTER STYLES */
+footer {
+    margin-top: 60px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+    padding-bottom: 30px;
 }
-@keyframes shineFooter { to{background-position:200% center;} }
+
+.highlight-name {
+    font-weight: 900;
+    color: #fff;
+    display: inline-block;
+    letter-spacing: 5px;
+    text-shadow: 0 0 10px var(--theme-glow);
+    background: linear-gradient(to right, #fff 20%, var(--theme-accent) 40%, #fff 60%, #fff 80%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shineName 3s linear infinite;
+}
+
+.contact-info {
+    margin-top: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: lowercase;
+    color: #888;
+}
+
+.contact-info a {
+    color: #ffffff !important;
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 1px solid var(--theme-accent);
+    padding-bottom: 2px;
+    transition: 0.3s ease;
+    text-shadow: 0 0 5px var(--theme-glow);
+}
+
+.contact-info a:hover {
+    color: var(--theme-accent) !important;
+    text-shadow: 0 0 15px var(--theme-glow);
+}
+
+@keyframes shineName {
+    to { background-position: 200% center; }
+}
 
 </style>
 </head>
@@ -186,42 +223,36 @@ footer{
                 
                 <div class="story-section">
                     <p>
-                        <p>
-Bruce Wayne was born rich. Like betam rich. 
-Big house, clean suits, everything luxury. Life was smooth… until one night in Gotham. 
-That night changed everything. Endet new life like this?
-</p>
-
-<p>
-Instead of crying forever and saying “yene gud,” Bruce stood up. 
-He said, “Enough. I will not let fear control me.” 
-While other rich kids were enjoying soft life, Bruce was training hard. 
-Push-ups, martial arts, mind discipline — betam serious.
-</p>
-
-<p>
-He traveled the world, learning how criminals think. 
-He trained until his body said “bas!” but he said “aydelem.” 
-No superpowers. Just discipline, focus, and zero fear.
-</p>
-
-<p>
-Then he realized something important: people fear symbols. 
-So he chose a bat. Why a bat? Because even in Addis, 
-if something flies near you at night, inde? you’re already running.
-</p>
-
-<p>
-That’s how Bruce Wayne stopped being just a rich boy 
-and became Batman. Ye Gotham lijoch now know — 
-if you see shadow moving… better say “sorry” and run.
-</p>
-
+                        Bruce Wayne was born rich Like betam rich <br>
+                        Big house mmmm clean suits and everything luxury like we lived on our dream 😄😄 Life was smooth… until one night in Gotham...
+                        That night changed everything...
+                    </p>
+                    <br>
+                    <p>
+                        Bruce stood up and He said, Enough. I will not let fear control me. <br>
+                        While other rich kids were enjoying soft life, Bruce was training hard. <br>
+                        like Push-ups, martial arts & mind discipline, he had betam arif tenenet ena sewent..
+                    </p>
+                    <br>
+                    <p>
+                        He traveled the world like learning how criminals thinks <br>
+                        bruce was had No superpowers, Just discipline, focus, and zero fear.
+                    </p>
+                    <br>
+                     <p>
+                        Then he realized something important: people fear symbols... <br>
+                        So he chose a bat. Why a bat? Because even in Addis, <br>
+                        if something flies near you at night u gotta be running😁😁 so he choice bat😉
+                    </p>
+                    <br>
+                    <p>
+                        That’s how Bruce Wayne stopped being just a rich boy <br>
+                        and became sewochn lemerdat ena lemagezz🦇🦖
                     </p>
                 </div>
 
                 <div class="quote">
-                    "THIS IS BATMAN STORY WRITTEN ON SINGLE WEB PAGE."
+                    "THIS IS BATMAN STORY WITH THE FUNNY WEB PAGE🤗"
                 </div>
 
                 <div class="theme-controls-wrapper">
@@ -234,8 +265,12 @@ if you see shadow moving… better say “sorry” and run.
                 </div>
 
                 <footer>
-                    code written by AbelE.
+                    Code written by <span class="highlight-name">AbelE.</span> &copy; 2026 GC
+                    <div class="contact-info">
+                        contact: <a href="mailto:abelendashaw269@gmail.com">abelendashaw269@gmail.com</a>
+                    </div>
                 </footer>
+
             </div>
         </div>
     </div>
