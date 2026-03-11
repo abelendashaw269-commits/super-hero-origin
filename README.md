@@ -1,16 +1,16 @@
-Superman Web Project
-This project is a simple website created using basic HTML and CSS. It was developed as part of our Grade 11 web development assignment.
-Project Description
-The website is about Superman. It includes basic information about the character, a navigation menu, and simple page structure. The purpose of this project is to demonstrate understanding of HTML structure and basic CSS styling learned in class.
-Features
-The website includes:
-       AHome page section
-       Alink to the official DC website
-       AGallery link
-       AContact link using an email address
-       Asimple footer with contact information
-Technologies Used
-    HTML
-    CSSAuthor
+🦸 Superman Web Project
+This is a simple website made with HTML and CSS for my Grade 11 web design assignment.
+📄 About the Project
+The website is about Superman. It shows basic information about the character and uses a simple page layout to demonstrate the HTML and CSS we learned in class.
+⭐ Features
+- 🏠 Home section
+- 🔗 Link to the official DC website
+- 🖼 Gallery link
+- 📧 Contact link (email)
+- 📌 Simple footer with contact info
+💻 Technologies Used
+- HTML
+- CSS
+👤 Author
 Name: Abel Endashaw
 Email: abelendashaw269@gmail.com
